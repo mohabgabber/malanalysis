@@ -1,0 +1,369 @@
+md5                     04fb36199787f2e3e2135611a38321eb
+sha1                    65559245709fe98052eb284577f1fd61c01ad20d
+sha256                  d765e722e295969c0a5c2d90f549db8b89ab617900bf4698db41c7cdad993bb9
+path                    C:/Users/flare/Desktop/{71257279-042b-371d-a1d3-fbf8d2fadffa}.exe
+timestamp               2023-09-24 10:20:11.173364
+capa version            6.1.0
+os                      windows
+format                  pe
+arch                    i386
+extractor               VivisectFeatureExtractor
+base address            0x400000
+rules                   C:/Users/flare/AppData/Local/Temp/_MEI25202/rules
+function count          322
+library function count  6
+total feature count     23552
+
+inspect load icon resource
+namespace  anti-analysis
+scope      basic block
+matches    0x40DD10
+
+log keystrokes via polling (2 matches)
+namespace  collection/keylog
+scope      function
+matches    0x4067F0
+           0x407140
+
+initialize WinHTTP library
+namespace  communication/http
+scope      function
+matches    0x408250
+
+read HTTP header
+namespace  communication/http
+scope      function
+matches    0x408640
+
+set HTTP header
+namespace  communication/http
+scope      function
+matches    0x408340
+
+prepare HTTP request
+namespace  communication/http/client
+scope      function
+matches    0x408340
+
+receive HTTP response (2 matches)
+namespace  communication/http/client
+scope      function
+matches    0x407470
+           0x408410
+
+encode data using XOR (15 matches)
+namespace  data-manipulation/encoding/xor
+scope      basic block
+matches    0x4019E0
+           0x403170
+           0x404F71
+           0x404FC0
+           0x405010
+           0x407AE0
+           0x407B12
+           0x40A160
+           0x40AA00
+           0x40E9D1
+           0x40F0A0
+           0x40FE96
+           0x4102E1
+           0x410440
+           0x410521
+
+create new key via CryptAcquireContext (3 matches)
+namespace  data-manipulation/encryption
+scope      function
+matches    0x404620
+           0x404720
+           0x404D60
+
+encrypt or decrypt via WinCrypt (4 matches)
+namespace  data-manipulation/encryption
+scope      function
+matches    0x4048F0
+           0x404960
+           0x404A50
+           0x404AC0
+
+import public key
+namespace  data-manipulation/encryption
+scope      function
+matches    0x404720
+
+encrypt data using AES via WinAPI (2 matches)
+namespace  data-manipulation/encryption/aes
+scope      function
+matches    0x404040
+           0x407730
+
+reference public RSA key
+namespace  data-manipulation/encryption/rsa
+scope      function
+matches    0x40F280
+
+hash data via WinCrypt
+namespace  data-manipulation/hashing
+scope      function
+matches    0x404D60
+
+initialize hashing via WinCrypt
+namespace  data-manipulation/hashing
+scope      function
+matches    0x404D60
+
+hash data using SHA1
+namespace  data-manipulation/hashing/sha1
+scope      function
+matches    0x404D60
+
+hash data using SHA1 via WinCrypt
+namespace  data-manipulation/hashing/sha1
+scope      function
+matches    0x404D60
+
+generate random numbers using a Mersenne Twister (3 matches)
+namespace  data-manipulation/prng/mersenne
+scope      function
+matches    0x404F60
+           0x404FA0
+           0x4079E0
+
+extract resource via kernel32 functions (2 matches)
+namespace  executable/resource
+scope      function
+matches    0x40A760
+           0x40BB20
+
+accept command line arguments (2 matches)
+namespace  host-interaction/cli
+scope      function
+matches    0x4010C0
+           0x401D60
+
+open clipboard
+namespace  host-interaction/clipboard
+scope      function
+matches    0x408D30
+
+write clipboard data
+namespace  host-interaction/clipboard
+scope      function
+matches    0x408D30
+
+query environment variable (2 matches)
+namespace  host-interaction/environment-variable
+scope      function
+matches    0x402380
+           0x40E720
+
+get common file path (3 matches)
+namespace  host-interaction/file-system
+scope      function
+matches    0x402380
+           0x4050C0
+           0x405880
+
+get file system object information
+namespace  host-interaction/file-system
+scope      basic block
+matches    0x40DF83
+
+copy file
+namespace  host-interaction/file-system/copy
+scope      function
+matches    0x40E990
+
+delete file (4 matches)
+namespace  host-interaction/file-system/delete
+scope      function
+matches    0x401000
+           0x405550
+           0x40E720
+           0x40E990
+
+enumerate files on Windows
+namespace  host-interaction/file-system/files/list
+scope      function
+matches    0x405570
+
+enumerate files recursively
+namespace  host-interaction/file-system/files/list
+scope      function
+matches    0x405570
+
+get file attributes
+namespace  host-interaction/file-system/meta
+scope      basic block
+matches    0x40458A
+
+get file size (2 matches)
+namespace  host-interaction/file-system/meta
+scope      function
+matches    0x403EB0
+           0x404040
+
+set file attributes (7 matches)
+namespace  host-interaction/file-system/meta
+scope      basic block
+matches    0x401010
+           0x4045DC
+           0x405550
+           0x40E8CD
+           0x40EA50
+           0x40EA97
+           0x40EB87
+
+move file
+namespace  host-interaction/file-system/move
+scope      function
+matches    0x404420
+
+read file on Windows (2 matches)
+namespace  host-interaction/file-system/read
+scope      function
+matches    0x403C80
+           0x405250
+
+write file on Windows (4 matches)
+namespace  host-interaction/file-system/write
+scope      function
+matches    0x403D70
+           0x403EB0
+           0x404040
+           0x40E720
+
+get graphical window text (2 matches)
+namespace  host-interaction/gui/window/get-text
+scope      function
+matches    0x40CFD0
+           0x40DD10
+
+hide graphical window (5 matches)
+namespace  host-interaction/gui/window/hide
+scope      basic block
+matches    0x40A7EF
+           0x40A843
+           0x40B911
+           0x40D476
+           0x40D7B0
+
+get disk information (2 matches)
+namespace  host-interaction/hardware/storage
+scope      function
+matches    0x402F90
+           0x403070
+
+get disk size (2 matches)
+namespace  host-interaction/hardware/storage
+scope      function
+matches    0x402F90
+           0x403070
+
+check mutex and exit
+namespace  host-interaction/mutex
+scope      function
+matches    0x401990
+
+create mutex (2 matches)
+namespace  host-interaction/mutex
+scope      function
+matches    0x401990
+           0x4102A0
+
+get hostname
+namespace  host-interaction/os/hostname
+scope      function
+matches    0x4013E0
+
+create process on Windows (5 matches)
+namespace  host-interaction/process/create
+scope      basic block
+matches    0x401910
+           0x401966
+           0x408F4D
+           0x40EAF2
+           0x41014D
+
+terminate process
+namespace  host-interaction/process/terminate
+scope      function
+matches    0x401E00
+
+query or enumerate registry key
+namespace  host-interaction/registry
+scope      function
+matches    0x4093A0
+
+query or enumerate registry value (8 matches)
+namespace  host-interaction/registry
+scope      function
+matches    0x403070
+           0x409140
+           0x4092A0
+           0x40A070
+           0x40A760
+           0x40EFD0
+           0x410370
+           0x410770
+
+set registry value (5 matches)
+namespace  host-interaction/registry/create
+scope      function
+matches    0x409010
+           0x4090C0
+           0x40F3D0
+           0x40F790
+           0x4104F0
+
+delete registry key
+namespace  host-interaction/registry/delete
+scope      function
+matches    0x409340
+
+delete registry value (2 matches)
+namespace  host-interaction/registry/delete
+scope      function
+matches    0x40EBC0
+           0x410830
+
+create thread
+namespace  host-interaction/thread/create
+scope      basic block
+matches    0x409577
+
+resume thread
+namespace  host-interaction/thread/resume
+scope      basic block
+matches    0x409593
+
+link function at runtime on Windows (6 matches)
+namespace  linking/runtime-linking
+scope      function
+matches    0x405290
+           0x405310
+           0x405880
+           0x408160
+           0x409340
+           0x40EC60
+
+resolve function by parsing PE exports (3 matches)
+namespace  load-code/pe
+scope      function
+matches    0x4033B0
+           0x403403
+           0x40CFD0
+
+persist via Run registry key (3 matches)
+namespace  persistence/registry/run
+scope      function
+matches    0x4021F0
+           0x409010
+           0x40EBC0
+
+identify system language via API
+namespace  targeting/language
+scope      function
+matches    0x40EC60
+
+
+
